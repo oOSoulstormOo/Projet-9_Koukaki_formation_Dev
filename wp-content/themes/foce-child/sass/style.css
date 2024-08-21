@@ -1,10 +1,16 @@
+:root {
+  --delay-flowers: 8s;
+  --out-delay: 0.1s;
+  --fadeIn-delay: 1s;
+}
+
 .banner {
   transform: translateY(0px);
-  animation: fadeInDown 1s ease-in-out 0.1s;
+  animation: fadeInDown var(--fadeIn-delay) ease-in-out var(--out-delay);
   overflow: hidden;
 }
 .banner__logo {
-  animation: fadeInUp 1s ease-in-out 0.1s;
+  animation: fadeInUp var(--fadeIn-delay) ease-in-out var(--out-delay);
   position: absolute;
   z-index: 1;
   display: flex;
@@ -13,17 +19,37 @@
 }
 
 .story {
-  animation: fadeInUp 1s ease-in-out 0.1s;
+  animation: fadeInUp var(--fadeIn-delay) ease-in-out var(--out-delay);
+}
+
+.story h2::after {
+  animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
+  height: 155px;
+}
+
+.story__article::after {
+  animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
 }
 
 #studio {
-  animation: fadeInUp 1s ease-in-out 0.1s;
+  animation: fadeInUp var(--fadeIn-delay) ease-in-out 0.1s;
+}
+#studio h2::before {
+  animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
+  height: 203px;
+}
+#studio h2::after {
+  animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
+  width: 108px;
+  height: 108px;
 }
 
 .oscars {
+  animation: fadeInUp var(--fadeIn-delay) ease-in-out var(--out-delay);
   display: flex;
   justify-content: center;
   padding-top: 150px;
+  position: relative;
 }
 .oscars__container {
   display: flex;
@@ -42,10 +68,12 @@
   text-align: left;
   text-shadow: 0px 3px 9px rgba(0, 0, 0, 0.6);
   background-size: contain;
+  padding: 80px 80px;
 }
 @media (max-width: 480px) {
   .oscars__container h3 {
     text-align: center;
+    padding: 70px 70px;
   }
 }
 .oscars__container h3 span {
@@ -84,9 +112,29 @@
     margin-top: 0px;
   }
 }
+.oscars__container::before {
+  content: url("../new-image/sunflower.png");
+  position: absolute;
+  left: 7em;
+  top: 2em;
+  animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
+}
+.oscars__container::after {
+  content: url("../new-image/orchid.png");
+  position: absolute;
+  right: -4em;
+  top: 0em;
+  animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
+}
 
 .site-footer {
-  animation: fadeInUp 1s ease-in-out 0.1s;
+  animation: fadeInUp var(--fadeIn-delay) ease-in-out var(--out-delay);
+}
+.site-footer::before, .site-footer::after {
+  display: none;
+}
+.site-footer ul::after {
+  animation: rotateFlowers 10s var(--out-delay) linear infinite;
 }
 
 @keyframes fadeInDown {
@@ -107,5 +155,13 @@
   to {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+@keyframes rotateFlowers {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }/*# sourceMappingURL=style.css.map */
