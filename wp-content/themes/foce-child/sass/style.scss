@@ -1,3 +1,134 @@
-body { 
-    background-color: blue;
+// Première Sections Hero header 
+
+.banner {
+    transform: translateY(0px);
+    animation: fadeInDown 1s ease-in-out 0.1s;
+    overflow: hidden;
+        &__logo {
+            animation: fadeInUp 1s ease-in-out 0.1s;
+            position: absolute;
+            z-index: 1;
+            display: flex;
+            width: 100%;
+            justify-content: center;           
+        }
+}
+
+// 2ème Section "L'Histoire"
+
+.story {
+    animation: fadeInUp 1s ease-in-out 0.1s;
+}
+
+// 3ème Section "Studio Koukaki"
+#studio {
+    animation: fadeInUp 1s ease-in-out 0.1s;
+}
+
+//4ème Section "Nomination aux oscars"
+//.oscars {
+//    display: flex;
+//    justify-content: center;
+//       &__container {
+//            display: flex;
+//          flex-direction: row;
+//            width: 966px;
+//            height: 200px;
+//            justify-content: center;
+//                h3 {
+//                    line-height: normal;
+//                    text-align: left;
+//                    background-image: url('../new-image/oscars-background.png');
+//                }
+//                img {
+//                    width: 280px;
+//                    height: 130px;
+//                }
+//        }
+//}
+
+.oscars {
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 150px;
+        justify-content: center;
+        @media (max-width: 1192px) {
+            flex-direction: column;
+            align-items: center;
+        }       
+        h3 {
+            background: url('../new-image/oscars-background.png') no-repeat center;
+            text-align: left;
+            text-shadow: 0px 3px 9px rgba(0,0,0,0.6);
+            background-size: contain;
+            @media (max-width: 480px) {
+                text-align: center;
+            }
+            span {
+                display: inline-block;
+                justify-content: center;
+                max-width: 100%;
+                @media (max-width: 720px) {
+                    font-size: 1.9rem;
+                    line-height: 2.5rem;
+                }
+                @media (max-width: 570px) {
+                    font-size: 1.6rem;
+                    line-height: 2.2rem;
+                }
+                @media (max-width: 480px) {
+                    font-size: 1.4rem;
+                    line-height: 1.9rem;
+                    width: 300px;
+                }           
+            }
+        }
+        img {
+            margin-right: 40px;
+            margin-top: 30px;
+            width: 280px;
+            height: 130px;
+            @media (max-width: 1192px) {
+                margin-right: 0px;
+                margin-top: 0px;
+            }
+        }
+    }
+}
+
+
+
+// Footer
+.site-footer {
+    animation: fadeInUp 1s ease-in-out 0.1s;
+}
+
+
+// ***** KeyFrame ******
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+        }
+    100% {
+        opacity: 1;
+        transform:translateY(0px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(300px);
+    }
+    to {
+        opacity:  1;
+        transform: translateY(0px);
+    }
 }
