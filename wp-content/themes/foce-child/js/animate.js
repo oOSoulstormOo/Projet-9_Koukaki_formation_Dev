@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // ***** FIN SWIPPER JS POUR LA SECTIONS "PERSONNAGES" ***** //
 
 
-
 // ***** MENU BURGER / NAVIGATION *****/
 document.addEventListener("DOMContentLoaded", function() { 
     const menu = document.querySelector('.menu-burger');            // On cible le burger-menu
