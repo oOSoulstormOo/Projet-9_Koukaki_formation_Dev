@@ -1,34 +1,404 @@
 //***************//
-//** Variables **//
+//** VARIABLES **//
 //***************//
+
+// Variable animation //
 :root {
     --delay-flowers: 8s;
     --out-delay: 0.1s;
     --fadeIn-delay: 1s;
 }
 
-// **** Première Sections Hero header **** 
+// ***** NAVIGATION / MENU BURGER ***** //
+.main-navigation {
+    @media (max-width: 699px) {
+        height: 80px;
+    }
+        ul {
+	    display: none;
+        }
+}
 
+// Barre de navigation //
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 620px) {
+        align-items: normal;
+    }
+
+    .site-title {
+        text-align: center;
+        @media (max-width: 360px) {
+        font-size: 18px;    
+        }    
+    }
+
+    .menu-burger {
+        position: absolute;
+        right: 80px;
+        width: 40px;
+        cursor: pointer;
+        @media (max-width: 620px) {
+            right: 50%;
+            bottom: 0%;
+        }
+
+        .line {
+            height: 1px;
+	        background-color: #000;
+	        display: block;
+	        margin: auto;
+	        margin-block: 10px;
+	        width: 40px;
+
+            &__1 {
+                position: relative;
+                transform: translateY(0px) rotate(0deg);
+                transition: 0.3s ease-in-out;
+                &.animated {
+                    transform: translateY(5px) rotate(225deg); 
+                    transition: 0.3s ease-in-out;
+                }
+            }
+
+            &__2 {
+                position: relative;
+                transform: translateY(0px);
+                opacity: 1;
+                transition: 0.3s ease-in-out;
+                &.animated {
+                    transform: translateY(11px);
+                    opacity: 0;
+                    transition: 0.3s ease-in-out;
+                }
+            }
+
+            &__3 {
+                position: relative;
+                transform: translateY(0px) rotate(0deg);
+                transition: 0.3s ease-in-out;
+                &.animated {
+                    transform: translateY(-16px) rotate(135deg); 
+                    transition: 0.3s ease-in-out;
+                }
+            }
+        }
+    }  
+}
+
+// Page du Menu //
+.burger-open-menu  {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFF5E9;
+    z-index: 5;
+    opacity: 0;
+    transform: translateY(-110vh);
+    transition: 1s ease-in-out;
+    
+    &.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition: 1s ease-in-out;
+    }
+    
+    .logo-menu {
+        width: 204px;
+        height: 136px;
+        margin-top: 44px;
+        margin-bottom: 70px;
+    }
+    
+    .nav-menu {
+        margin-bottom: 177px;
+        height: 540px;
+            
+        li {
+            text-align: center;                           
+                
+            a {
+                font-size: 64px;
+                margin-bottom: 57px;               
+                @media (max-width: 768px) {
+                    font-size: 40px;
+                } 
+                    
+                &:hover, &:focus, &:active {
+                        color: #000;
+                        text-shadow: 0px 0px 14px #FF5C00;
+                    }
+                }
+            }
+    }
+
+    p {
+        text-transform: uppercase;
+        margin-top: 220px;
+    }    
+
+// Disposition des éléments animés dans les <li> //
+    li:nth-of-type(1) {               // nth-of-type(number) permet de choisir le premier élément de 
+        display: contents;            // type li dans l'élément burger open menu // 
+        
+        &::before {
+            content: url("../new-image/orchid.png");
+            position: absolute; 
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 170px;
+            height: 170px;
+            top: 160px;
+            left: -50px;
+            animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
+            z-index: 6;
+            @media (max-width: 1180px) {
+                content: '';
+            }       
+        }
+        
+        &::after {
+            content: url("../new-image/sunflower-grande.png");
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: cotain;
+            width: 216px;
+            height: 216px;
+            top: 200px;
+            right: 140px;
+            animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
+            z-index: 6;
+            @media (max-width: 1180px) {
+                content: '';
+            }
+        }
+    }
+
+    li:nth-of-type(2) {                 // puis le deuxième, etc....
+        display: contents;
+        
+        &::before {
+            content: url("../new-image/cat_burger_menu1.png");
+            position: absolute; 
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 109px;
+            height: 99px;
+            top: 270px;
+            left: 280px;
+            animation: float 6s linear var(--out-delay) infinite;
+            z-index: 6;
+            @media (max-width: 1180px) {
+                content: '';
+            }
+        }
+        
+        &::after {
+            content: url("../new-image/random_flower_small.png");
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 75px;
+            height: 75px;
+            top: 530px;
+            right: -35px;
+            animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
+            z-index: 6;
+            @media (max-width: 1180px) {
+                content: '';
+            }
+        }
+    }
+
+    li:nth-of-type(3) {
+        display: contents;
+        
+        &::before {
+            content: url("../new-image/Flower_small.png");
+            position: absolute; 
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 70px;
+            height: 70px;
+            top: 640px;
+            left: 200px;
+            animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
+            z-index: 6;
+            @media (max-width: 1180px) {
+                content: '';
+            }   
+        }
+        
+        &::after {
+            content: url("../new-image/cat_burger_menu2.png");
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 155px;
+            height: 147px;
+            top: 620px;
+            right: 165px;
+            animation: float 6s linear var(--out-delay) infinite;
+            z-index: 6;
+            @media (max-width: 1180px) {
+                content: '';
+            }
+        }
+    }
+
+    li:nth-of-type(4) {
+        display: contents;
+        
+        &::before {
+            content: url("../new-image/cat_burger_menu3.png");
+            position: absolute; 
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 106px;
+            height: 96px;
+            top: 900px;
+            left: 80px;
+            animation: float 6s linear var(--out-delay) infinite;
+            z-index: 6;
+            @media (max-width: 1180px) {
+                content: '';
+            }
+        }
+        
+        &::after {
+            content: url("../new-image/hibiscus_burger_footer.png");
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 626px;
+            height: 626px;
+            top: 1004px;
+            right: -310px;
+            animation: rotateFlowers 10s var(--out-delay) linear infinite;
+            z-index: 5;
+            @media (max-width: 1180px) {
+                content: '';
+            }
+        }
+    }
+}
+
+// ***** PREMIERE SECTIONS "HERO HEADER" ***** //
+// La Bannière //
 .banner {
     transform: translateY(0px);
     animation: fadeInDown var(--fadeIn-delay) ease-in-out var(--out-delay);
     overflow: hidden;
-        &__logo {
-            animation: fadeInUp var(--fadeIn-delay) ease-in-out var(--out-delay);
+    background-image: none;
+    @media (max-width: 1280px) { // Ici tout les media de la bannière
+        min-height: 710px;
+    }
+    @media (max-width: 1080px) {
+        min-height: 600px;
+    }
+    @media (max-width: 806px) {
+        min-height: 480px;
+    }
+    @media (max-width: 780px) {
+        animation: none;
+    }
+   @media (max-width: 680px) {
+        min-height: 380px;
+    }
+    @media (max-width: 500px) {
+        min-height: 280px;
+    }
+    @media (max-width: 420px) {
+        min-height: 220px;
+    }
+    @media (max-width: 360px) {
+        min-height: 190px;
+    }                            // Fin media bannière
+        &__video {
             position: absolute;
-            z-index: 1;
-            display: flex;
             width: 100%;
-            justify-content: center;           
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            z-index: 0;
+            @media (max-width: 768px) {
+                display: none;
+            }
+            
+        }
+        
+        img {
+            position: absolute;
+            width: 100%;
+            object-fit: cover;
+            z-index: -1;
+            top: 0;
+            margin-top: 0;
+            
+        }
+        
+        &__logo {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            align-items: center;
+            //position: absolute;
+            z-index: 1;
+            min-height: 806px;
+            animation: fadeInUp var(--fadeIn-delay) ease-in-out var(--out-delay);
+            @media (max-width: 1280px) { // Media du conteneur du logo
+                min-height: 710px;
+            }
+            @media (max-width: 1080px) {
+                min-height: 600px;
+            }
+            @media (max-width: 806px) {
+                min-height: 480px;
+            }
+            @media (max-width: 780px){
+                animation: none;
+            }
+            @media (max-width: 680px) {
+                min-height: 380px;
+            }
+            @media (max-width: 500px) {
+                min-height: 280px;
+            }
+            @media (max-width: 420px) {
+                min-height: 220px;
+            }
+            @media (max-width: 360px) {
+                min-height: 190px;
+            }                           // Fin Media du conteneur du logo
+                
+            #logo {
+                    width: 50%;
+                    animation: float 6s linear var(--out-delay) infinite;
+                    margin-top: 7%;
+                    @media (max-width: 780px) {
+                        animation: none;
+                    }
+                }
         }
 }
 
-// **** 2ème Section "L'Histoire" ****
+// ***** 2EME SECTION "L'HISTOIRE" ***** //
+// Section "histoire" //
 .story {
     animation: fadeInUp var(--fadeIn-delay) ease-in-out var(--out-delay);
+    @media (max-width: 780px) {
+        animation: none;
+    }
 }
 
-// Fleur de la 2ème section
+// Fleur de la 2ème section //
 .story h2::after {
     animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
     height: 155px;
@@ -38,15 +408,108 @@
     animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
 }
 
+// Section "Les personnages" //
+#characters {
+    flex-direction: column;
+    overflow: hidden;
+    
+    h3 {
+        @media (max-width: 620px) {
+            padding: 1em 2.6em;
+        }
+    
+        .titleFade {
+        @media (max-width: 620px) {
+            line-height: 2.4rem;
+        }
+        }
+    }
+}
+// Swiper JS pour le carrousel "effet coverflow" //
+.swiper-container {
+    width: 1440px;
+    height: auto;
+    
+    img {
+        @media (max-width: 480px) {
+                width: 300px;
+                }
+        }
 
-// **** 3ème Section "Studio Koukaki" ****
+    .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        @media (max-width: 480px) {
+            align-items: center;
+        }
+    }
+    
+
+    .swiper-wrapper {
+        width: 1440px;
+
+        figure {
+            width: 400px;    
+        }
+    }
+}
+
+// Section "Le lieu" //
+.story #place {
+	background-image: url("../new-image/Studio_Koukaki-image_place.png");
+    
+    .container_cloud {
+        margin-top: 80px;
+        height: 238px;
+        width: 554px;
+        position: absolute;
+        right: 0;
+        margin-left: 0;
+        margin-right: 7em;
+        @media (max-width: 920px) {
+            display: none;
+        }
+        
+        &__cloud1 {
+            filter: blur(10px);
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        
+        &__cloud2 {
+            filter: blur(10px);
+            position: absolute;
+            bottom: 0;
+        }
+    }	
+}
+
+// ***** 3EME SECTION "STUDIO KOUKAKI" ***** // after & before sont les fleur de cette section ****
 #studio {
     animation: fadeInUp var(--fadeIn-delay) ease-in-out 0.1s;
-    h2 {
+    overflow: hidden;
+    @media (max-width: 780px) {
+        animation: none;
+    }
+    
+    h2 {        
+        .titleFade {
+            @media (max-width: 488px) {
+                line-height: 2.8rem;
+            }
+        }
+        
         &::before {
             animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
             height: 203px;
+            @media (max-width: 920px) {
+                content: '';
+            }
         }
+        
         &::after {
             animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
             width: 108px;
@@ -55,13 +518,21 @@
     }
 }
 
-// **** 4ème Section "Nomination aux oscars" ****
+// ***** 4EME SECTION "NOMINATOIN AUX OSCARS" ***** //
 .oscars {
     animation: fadeInUp var(--fadeIn-delay) ease-in-out var(--out-delay);
     display: flex;
     justify-content: center;
-    padding-top: 150px;
+    overflow: hidden;
+    padding-top: 200px;
     position: relative;
+    @media (max-width: 920px) {
+        padding-top: 20px;
+    }
+    @media (max-width: 780px) {
+        animation: none;
+    }
+    
     &__container {
         display: flex;
         flex-direction: row;
@@ -70,7 +541,11 @@
         @media (max-width: 1192px) {
             flex-direction: column;
             align-items: center;
-        }       
+        }
+        @media (max-width: 920px) {
+            margin-bottom: 100px;
+        }             
+        
         h3 {
             background: url('../new-image/oscars-background.png') no-repeat center;
             text-align: left;
@@ -81,6 +556,7 @@
                 text-align: center;
                 padding: 70px 70px;
             }
+            
             span {
                 display: inline-block;
                 justify-content: center;
@@ -100,9 +576,10 @@
                 }           
             }
         }
+        
         img {
             margin-right: 40px;
-            margin-top: 30px;
+            margin-top: 60px;
             width: 280px;
             height: 130px;
             @media (max-width: 1192px) {
@@ -110,47 +587,83 @@
                 margin-top: 0px;
             }
         }
+        
         &::before {
-            content: url('../new-image/sunflower.png');
+            content: url('../new-image/sunflower-grande.png');
             position: absolute;
-            left: 7em;
-	        top: 2em;
-            animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;;
+            left: 4em;
+	        top: 5em;
+            animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
+            @media (max-width: 920px) {
+                content: '';
+            }
         }
+        
         &::after {
             content: url('../new-image/orchid.png');
             position: absolute;
             right: -4em;
 	        top: 0em;
             animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
+            @media (max-width: 920px) {
+                content: '';
+            }
         }
     }
 }
 
 
 
-// **** Footer ****
+// ***** FOOTER ***** //
 .site-footer {
     animation: fadeInUp var(--fadeIn-delay) ease-in-out var(--out-delay);
+    padding-top: 18em;
+    @media (max-width: 920px) {
+        padding-top: 0;
+    }
+    @media (max-width: 780px) {
+        animation: none;
+    }
+    
     &::before, &::after {
         display: none;
     }
+    
     ul {
         &::after {
             animation: rotateFlowers 10s var(--out-delay) linear infinite;
+            @media (max-width: 920px) {
+                content: '';
+            }
         }
     }
 }
 
+// ***** FADEIN DES TITRES AU SCROLL ***** //
+.titleFade {
+    display: inline-block;
+    position: relative;
+    transform: translateY(100px);
+    opacity: 0;
+    @media (max-width: 780px) {
+        transform: none;
+        opacity: 1;
+    }
+        &.animated {
+            transform: translateY(0);
+            opacity: 1;
+            transition: .3s 600ms; 
+            }   
+}
 
-// ***** KeyFrame ******
-
+// ***** KEYFRAMES ****** //
+// Apparition des section en fadeIn //
 @keyframes fadeInDown {
-    0% {
+    from {
         opacity: 0;
         transform: translateY(-100px);
         }
-    100% {
+    to {
         opacity: 1;
         transform:translateY(0px);
     }
@@ -167,11 +680,43 @@
     }
 }
 
+// Rotation des fleurs //
 @keyframes rotateFlowers {
     from {
         transform: rotate(0deg);
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+// Effet de flottement des élements //
+@keyframes float {
+    0% {
+        transform: translate3d(6px,6px,0);
+    }
+    12% {
+        transform: translate3d(0px,6px,0);
+    }
+    24% {
+        transform: translate3d(6px,-4px,0);
+    }
+    36% {
+        transform: translate3d(6px,0px,0);
+    }
+    48% {
+        transform: translate3d(-4px,-6px,0);
+    }
+    60% {
+        transform: translate3d(0px,-4px,0);
+    }
+    72% {
+        transform: translate3d(-8px,6px,0);
+    }
+    84% {
+        transform: translate3d(-4px,0px,0);
+    }
+    100% {
+        transform: translate3d(6px,6px,0); 
     }
 }
