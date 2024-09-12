@@ -1,6 +1,6 @@
 // ***** FADEIN DES TITRES ***** // utilise Intersection Observer
 document.addEventListener("DOMContentLoaded", function(){
-    const titleElements = this.querySelectorAll('.titleFade')     // Variable correspondant au titre
+    const titleElements = this.querySelectorAll('.titleFade')     // Variable correspondant aux titres
     function titleFading(entries,observer){                       // Fonction qui repère la variable et ajoute la classe qui permet le FadeIn
         entries.forEach(function(entry){                          // Pour chaques titres
             if(entry.isIntersecting && window.innerWidth > 780){  // Si ils sont visible et que la fenêtre est superieur a 780px

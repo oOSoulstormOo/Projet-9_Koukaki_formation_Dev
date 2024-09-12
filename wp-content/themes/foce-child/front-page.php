@@ -26,7 +26,7 @@ get_header();
                     <h3><span class="titleFade">Le Lieu</span></h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
                 </div>
-                <div class="container_cloud" data-bottom= "left:760px" data-top= "left:350px">
+                <div class="container_cloud" data-bottom= "left:760px" data-top= "left:460px">
                 <img class="container_cloud__cloud1" src="<?php echo get_stylesheet_directory_uri() . '/new-image/big_cloud.png'; ?>" alt="image d'un gros nuage">
                 <img class="container_cloud__cloud2" src="<?php echo get_stylesheet_directory_uri() . '/new-image/little_cloud.png'; ?>" alt="image d'un petit nuage">
                 </div>

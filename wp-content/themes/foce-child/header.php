@@ -39,14 +39,16 @@
             </div>
             
             <div class="burger-open-menu">
-                <img class="logo-menu" src="<?php echo get_stylesheet_directory_uri() . '/new-image/logo-menu-burger.png'; ?>" alt="le logo du studio">
-                <ul>
-                    <li><a class="nav-items" href="#story">Histoire</a></li>
-                    <li><a class="nav-items" href="#characters">Personnages</a></li>
-                    <li><a class="nav-items" href="#place">Lieu</a></li>
-                    <li><a class="nav-items" href="#studio">Studio Koukaki</a></li>
-                </ul>
-                <p>Studio Koukaki</p>
+                <div>
+                    <img class="logo-menu" src="<?php echo get_stylesheet_directory_uri() . '/new-image/logo-menu-burger.png'; ?>" alt="le logo du studio">
+                    <ul>
+                        <li><a class="nav-items" href="#story">Histoire</a></li>
+                        <li><a class="nav-items" href="#characters">Personnages</a></li>
+                        <li><a class="nav-items" href="#place">Lieu</a></li>
+                        <li><a class="nav-items" href="#studio">Studio Koukaki</a></li>
+                    </ul>
+                </div>
+                    <p>Studio Koukaki</p>
             </div>
 
 		</nav><!-- #site-navigation -->

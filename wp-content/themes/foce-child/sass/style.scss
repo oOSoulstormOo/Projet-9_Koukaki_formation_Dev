@@ -97,36 +97,41 @@
     flex-direction: column;
     overflow: hidden;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh - 80px);
     background-color: #FFF5E9;
     z-index: 5;
     opacity: 0;
     transform: translateY(-110vh);
     transition: 1s ease-in-out;
+    justify-content: space-between;
     
     &.show {
         opacity: 1;
         transform: translateY(0);
         transition: 1s ease-in-out;
     }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     
     .logo-menu {
         width: 204px;
         height: 136px;
-        margin-top: 44px;
-        margin-bottom: 70px;
+        margin-top: 20px;
+        margin-bottom: 30px;
     }
     
     .nav-menu {
-        margin-bottom: 177px;
-        height: 540px;
             
         li {
             text-align: center;                           
                 
             a {
                 font-size: 64px;
-                margin-bottom: 57px;               
+                margin-bottom: 47px;               
                 @media (max-width: 768px) {
                     font-size: 40px;
                 } 
@@ -141,7 +146,6 @@
 
     p {
         text-transform: uppercase;
-        margin-top: 220px;
     }    
 
 // Disposition des éléments animés dans les <li> //
@@ -155,8 +159,8 @@
             background-size: contain;
             width: 170px;
             height: 170px;
-            top: 160px;
-            left: -50px;
+            top: 72px;
+            left: -60px;
             animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
             z-index: 6;
             @media (max-width: 1180px) {
@@ -171,8 +175,8 @@
             background-size: cotain;
             width: 216px;
             height: 216px;
-            top: 200px;
-            right: 140px;
+            top: 89px;
+            right: 120px;
             animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
             z-index: 6;
             @media (max-width: 1180px) {
@@ -191,7 +195,7 @@
             background-size: contain;
             width: 109px;
             height: 99px;
-            top: 270px;
+            top: 151px;
             left: 280px;
             animation: float 6s linear var(--out-delay) infinite;
             z-index: 6;
@@ -207,7 +211,7 @@
             background-size: contain;
             width: 75px;
             height: 75px;
-            top: 530px;
+            top: 395px;
             right: -35px;
             animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
             z-index: 6;
@@ -227,7 +231,7 @@
             background-size: contain;
             width: 70px;
             height: 70px;
-            top: 640px;
+            top: 483px;
             left: 200px;
             animation: rotateFlowers var(--delay-flowers) var(--out-delay) linear infinite;
             z-index: 6;
@@ -243,8 +247,8 @@
             background-size: contain;
             width: 155px;
             height: 147px;
-            top: 620px;
-            right: 165px;
+            top: 470px;
+            right: 155px;
             animation: float 6s linear var(--out-delay) infinite;
             z-index: 6;
             @media (max-width: 1180px) {
@@ -263,7 +267,7 @@
             background-size: contain;
             width: 106px;
             height: 96px;
-            top: 900px;
+            top: 727px;
             left: 80px;
             animation: float 6s linear var(--out-delay) infinite;
             z-index: 6;
@@ -279,8 +283,8 @@
             background-size: contain;
             width: 626px;
             height: 626px;
-            top: 1004px;
-            right: -310px;
+            bottom: -360px;
+            right: -332px;
             animation: rotateFlowers 10s var(--out-delay) linear infinite;
             z-index: 5;
             @media (max-width: 1180px) {
